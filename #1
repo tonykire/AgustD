@@ -1,0 +1,15 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+int c = 78487894,x = 1;
+    while (true){
+        if (((c - 2020 * x) % 2021) == 0){
+        b=(c - 2020 * x) / 2021;
+        cout << x << ' ' << b ;
+         return 0;
+        }
+        x++;
+    }
+}
+//
