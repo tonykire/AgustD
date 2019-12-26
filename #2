@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+void prr(int n, int i, vector<int> &a){
+    if ( n%2==0 ){
+        if ( i>=n/2 ){
+            return;
+        }
+        if ( i==n/2-1 ){
+            for ( int j=0; j<10; j++ ){
+                a[i] = j;
+                a[i + 1] = j;
+                for ( int l=0; l<n; l++ ){
+                    cout << a[l];
+                }cout << endl;
+            }
+        }else{
+            for ( int j=0; j<10; j++ ){
+                a[i] = j;
+                a[n - i - 1] = j;
+                prr(n, i + 1, a);
+            }
+        }
+    }else{
+        if ( i>n/2 ){
+            return;
+        }
+        if ( i==n/2 ){
+            for ( int j = 0; j < 10; j++ ){
+                a[i] = j;
+                for ( int l=0; l<n; l++ ){
+                    cout << a[l];
+                }cout << endl;
+            }
+        }else{
+            for ( int j=0; j<10; j++ ){            {
+                a[i] = j;
+                a[n - i - 1] = j;
+                prr(n, i + 1, a);
+            }
+        }
+    }
+}
+}
+
+int main(){
+    int n;
+    cin >> n;
+    vector <int> a(n);
+    for ( int i=1; i<10; i++ ){
+        a[0] = i;
+        a[n - 1] = i;
+        prr(n, 1, a);
+    }
+}
+//т.к. мы берём различнные числа для рекурсии,с каждым шагом находим еще один  палиндром, но вывести все палиндромы менее чем за их кол-во нельзя,поэтому алгоритм эффективен 
